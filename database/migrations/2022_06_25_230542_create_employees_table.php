@@ -14,13 +14,13 @@ return new class extends Migration
     public function up()
     {
         Schema::create('employees', function (Blueprint $table) {
+            // $table->unsignedBigInteger('companyID');
             $table->string('firstName');
             $table->string('lastName');
-            $table->foreignId('companyID')->constrained('company');
+            $table->foreignId('companyID')->constrained('companies');
             $table->string('email')->unique();
             $table->integer('phone')->nullable();
-            
-           
+                
         });
     }
 
