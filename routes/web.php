@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\ManualLoginController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +24,12 @@ Route::get('/', function () {
 Route::post('/create-employee',[EmployeeController::class, "createEmployee"]);
 
 Route::get('/employees',[EmployeeController::class, "getEmployees"]);
+Route::post('/create',[CompanyController::class, "create"]);
+
 
 Auth::routes();
+Auth::routes(['register' => false]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
